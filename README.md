@@ -17,6 +17,12 @@ Dataset: Kaggle Google Play Store Apps https://www.kaggle.com/lava18/google-play
 * ~95% Accuracy if using Reviews and Ratings columns. 
 * ~72% Accuracy if not using above columns. (More realistic as reviews/ratings will be null if app is not on the Play store.)
 
+# UPDATE - Fix These:
+## Issues found with the model/process used in this Jupyter Notebook:
+* When preprocessing the model, OneHotEncoding should have been used rather than the LabelEncoder. This is because a bias may exist between numbers in 0-33 rather than a matrix of 0 and 1 for category, genre, and content rating.
+* A K-fold Cross Validation set should have been used to find tune the model before using the test set.
+* Other models could have been used during the cross validation process to determine the best binary classifier model to use.
+* ROC AUC or precision/recall curves should have been created to determine the best decision threshold for the model.
 ## Future Work
 * Models which will most likely have better performance are K Nearest-Neighbors, Logistic Regression, and Random Forests. Once implementation of these models are learned, I will commit a change to this repo with the new results from all listed ML models. 
 
